@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    Anna arvosana: <br/>
+    <input id="arvo" />
+    <button type="button" onclick="tutkiArvo();">Tutki</button>
+    <br/><br/>
+    <div id="tulostuslaatikko"></div>
+    <script>
+
+    function tutkiArvo(){
+        var nimi;
+        var arvo = document.getElementById("arvo").value;
+
+        if(isNaN(arvo )|| arvo.length <1) {
+            nimi = "Anna luku 0 - 5 väliltä";
+        }
+        else if (arvo == 0) {
+            nimi = "Hylätty";
+        }
+        else if (arvo >= 1 && arvo <= 2) {
+            nimi = "Tyydyttävä";
+        }
+        else if (arvo >= 3 && arvo <= 4) {
+            nimi = "Hyvä";
+        }
+        else if (arvo >= 5 && arvo <= 5) {
+            nimi= "Kiitettävä";
+        }
+        else {
+            nimi = "Anna luku 0 - 5 väliltä";
+        }
+
+            document.getElementById("tulostuslaatikko").innerHTML = nimi;
+
+            document.getElementById("arvo").value = "";
+            document.getElementById("arvo").focus();
+
+    }
+
+    </script>
+    
+</body>
+</html>
