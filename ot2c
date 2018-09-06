@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Nimen tulostaminen useamman kerran</title>
+</head>
+<body>
+    
+    <h1>Nimen tulostaminen useamman kerran</h1> <br/><br/>
+    <input id ="annettuNimi" placeholder="Anna nimi"><br/>
+    <input id ="annettuKerroin" placeholder="Montako kertaa tulostetaan"><br/>
+    <button type="button" onclick="tulostus()">Tulosta</button>
+
+<p id="fdsij"></p>
+<script>
+
+    function tulostus (){
+
+    var nimi = document.getElementById('annettuNimi').value;
+    var lol = document.getElementById('annettuKerroin').value;
+
+        document.getElementById("fdsij").innerHTML = "";
+
+    for (i = 0; i < lol; i++) {
+        document.getElementById("fdsij").innerHTML += nimi + "<br>";
+    }
+
+    }
+</script>
+
+</body>
+</html>
