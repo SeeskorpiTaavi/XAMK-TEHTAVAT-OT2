@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lippuautomaatti</title>
+</head>
+<body>
+
+    <h1>Lippuautomaatti</h1>
+    <br/><br/>
+    1. luokka
+    <input type="radio" name="luokka" id="ekaluokka"><br/>
+    2. luokka
+    <input type="radio" name="luokka" id="tokaluokka">
+    <br/><br/>
+    Meno: 
+    <input type="radio" name="matka" id="meno"><br/>
+    Meno-paluu: 
+    <input type="radio" name="matka" id="menopaluu">
+    <br/><br/>
+    Alennus: <input type="checkbox" id="alennus">
+    <br/><br/>
+    Lippuja (kpl):
+    <select id="kpl">
+        <option value="1">1</option>
+        <option value="2">2</option>
+
+    </select>
+    <br/><br/>
+
+    <button onclick="tulostaLippu()">Osta</button>
+    <br/><br/>
+    <div id="loppumaara"></div>
+    <script>
+    
+        var hinta = 0;
+        var kerroin = 1;
+        var kplmaara = 0;
+        var alennus = 1;
+        
+
+    function tulostaLippu() {
+        
+        if (document.getElementById("ekaluokka").checked){
+            hinta =+ 140.61;
+        }
+
+        else {
+            hinta =+ 86.10;
+        }
+
+        if (document.getElementById("meno").checked){
+            kerroin =+ 1;
+        } 
+        
+        else {
+            kerroin =+ 2;
+        }
+
+        if (document.getElementById("alennus").checked){
+            alennus = 0.8;
+        }
+
+        else {
+            alennus = 1;
+        }
+
+        kplmaara = document.getElementById("kpl").value;
+        
+        document.getElementById("loppumaara").innerHTML = "Lipun hinta: " + hinta * kerroin * alennus * kplmaara;
+
+    }
+    </script>
+
+    
+</body>
+</html>
