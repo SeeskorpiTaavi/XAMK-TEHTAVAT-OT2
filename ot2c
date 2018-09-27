@@ -13,18 +13,18 @@
     <input id ="annettuKerroin" placeholder="Montako kertaa tulostetaan"><br/>
     <button type="button" onclick="tulostus()">Tulosta</button>
 
-<p id="fdsij"></p>
+<p id="nimet"></p>
 <script>
 
     function tulostus (){
 
     var nimi = document.getElementById('annettuNimi').value;
-    var lol = document.getElementById('annettuKerroin').value;
+    var kerroin = document.getElementById('annettuKerroin').value;
 
-        document.getElementById("fdsij").innerHTML = "";
+        document.getElementById("nimet").innerHTML = "";
 
-    for (i = 0; i < lol; i++) {
-        document.getElementById("fdsij").innerHTML += nimi + "<br>";
+    for (i = 0; i < kerroin; i++) {
+        document.getElementById("nimet").innerHTML += nimi + "<br>";
     }
 
     }
