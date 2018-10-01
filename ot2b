@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Öljytankit</title>
+    <style>
+        .hide {
+            display: none;
+        }
+    </style>
+    
+</head>
+<body>
+    
+<h1>Öljytankit</h1>
+
+    Tankki 1 <button id="btn-tankki-1" type="button" onclick="piilossa('määränSyöttö1')">Siirrä öljyä</button>
+    <input id="tankki1" placeholder="Tankin sisältö: " value="20000" disabled><br/>
+
+    Tankki 2 <button id="btn-tankki-2" type="button" onclick="piilossa('määränSyöttö2')">Siirrä öljyä</button>
+    <input id="tankki2" placeholder="Tankin sisältö: " value="20000" disabled><br/>
+
+    Tankki 3 <button id="btn-tankki-3" type="button" onclick="piilossa('määränSyöttö3')">Siirrä öljyä</button>
+    <input id="tankki3" placeholder="Tankin sisältö: " value="20000" disabled><br/><br/><br/>
+    <br/><br/>
+    
+    <div id="määränSyöttö1" class="hide" data-lähde="tankki1">
+        <input id="siirto-tankki1" placeholder="1. tankki">
+        <button data-kohde="tankki2" onclick="siirra(this,'siirto-tankki1')">Tankkiin 2</button>
+        <button data-kohde="tankki3" onclick="siirra(this,'siirto-tankki1')">Tankkiin 3</button>
+    </div>
+
+    <div id="määränSyöttö2" class="hide" data-lähde="tankki2">
+        <input id="siirto-tankki2" placeholder="2. tankki">
+        <button data-kohde="tankki1" onclick="siirra(this,'siirto-tankki2')">Tankkiin 1</button>
+        <button data-kohde="tankki3" onclick="siirra(this,'siirto-tankki2')">Tankkiin 3</button>
+
+    </div>
+
+    <div id="määränSyöttö3" class="hide" data-lähde="tankki3">
+        <input id="siirto-tankki3" placeholder="3. tankki">
+        <button data-kohde="tankki1" onclick="siirra(this,'siirto-tankki3')">Tankkiin 1</button>
+        <button data-kohde="tankki2" onclick="siirra(this,'siirto-tankki3')">Tankkiin 2</button>
+    </div>
+
+    <script>
+        function piilossa(id) {
+            var piilo = document.getElementById(id);
+            piilo.classList.toggle('hide');
+        }
+        
+        function siirra(btn, maara) {
+
+            maara = document.getElementById(maara).value;
+            var kohde = document.getElementById(btn.dataset.kohde);
+            var lähde = document.getElementById(btn.parentElement.dataset.lähde);
+
+            if (maara > lähde) {
+                window.alert("Ei voida suorittaa siirtoa.");
+                return;
+            } else {
+                window.alert("Siirto onnistui.");
+            }
+            
+            tulos = parseInt(kohde.value) + parseInt(maara);
+            kohde.value = tulos;
+            lähde.value = lähde.value - maara;
+
+           
+
+            console.log(btn.dataset.kohde);
+            console.log(maara);
+            console.log(btn.parentElement.dataset.lähde);
+        }
+
+    </script>
+
+</body>
+</html>
